@@ -76,8 +76,6 @@ Inspired by [literate programming](http://literateprogramming.com) and built as 
 - **requirements.txt**
     > List of Python package dependencies installed via pip. After creating your conda environment, install packages with `pip install -r requirements.txt`. See [Anaconda Setup Guide](docs/anaconda-setup.md) for details.
 
-- **.env.example**
-    > Template file for environment variables. Copy to `.env` and add your API keys and secrets (if needed).
 
 ## Why Are We Using This Template?
 
