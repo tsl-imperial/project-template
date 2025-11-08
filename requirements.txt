@@ -1,0 +1,17 @@
+# Python package dependencies
+# First create and activate conda environment:
+#   conda create -n coursework python=3.11
+#   conda activate coursework
+# Then install packages:
+#   pip install -r requirements.txt
+
+jupyter
+pandas
+numpy
+matplotlib
+scikit-learn
+seaborn
+python-dotenv
+httpx
+
+# Add your additional packages below
