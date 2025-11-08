@@ -33,8 +33,6 @@ The `docs/` folder contains helpful guides:
 
 ## Learning Resources
 
-### DataCamp Resources
-
 To help you get started, check these DataCamp resources:
 
 **Jupyter Notebooks:**
