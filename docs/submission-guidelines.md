@@ -1,183 +1,68 @@
 # Submission Guidelines
 
-This guide will help you prepare your coursework repository for submission.
+Your coursework brief takes precedence over this guide where they differ. The latest version of this guide is at [github.com/tsl-imperial/project-template](https://github.com/tsl-imperial/project-template).
 
-> **⚠️ Note:** These guidelines may change. Please check your coursework guidance for the most current requirements. Newer versions of this document can be found at https://github.com/tsl-imperial/project-template
+## Checklist
 
-## Before You Submit
+**Runs**
+- [ ] Every notebook runs from top to bottom after **Restart & Run All**.
+- [ ] Paths are relative (`../data/file.csv`), not specific to your computer.
+- [ ] `requirements.txt` lists every package you import.
+- [ ] The Streamlit app starts with `streamlit run src/app.py`, if your coursework includes one.
 
-### Pre-Submission Checklist
+**Documented**
+- [ ] `README.md` is your own, written from [README-EXAMPLE.md](../README-EXAMPLE.md), not this template's.
+- [ ] Data sources, references and AI tool use are stated.
+- [ ] Individual contributions are summarised (group projects).
 
-Use this checklist to ensure your submission is complete:
+**Repository**
+- [ ] The repository is **Private**.
+- [ ] No passwords, API keys or personal data are committed.
+- [ ] Data files over 50 MB are not committed, and `data/README.md` says where to get them.
+- [ ] Everything is pushed: check on GitHub.com, not just on your computer.
 
-#### Code Quality
-- [ ] All code runs without errors
-- [ ] Code is well-commented and readable
-- [ ] Variable and function names are descriptive
-
-#### Documentation
-- [ ] README.md is complete and describes your project
-- [ ] Requirements/dependencies are documented
-- [ ] Data sources are cited
-- [ ] Methods and analysis are explained
-
-#### Reproducibility
-- [ ] All notebooks run from top to bottom without errors
-- [ ] Dependencies are listed (requirements.txt)
-- [ ] Results can be reproduced by following your instructions
-
-#### Data Management
-- [ ] No large data files committed to repository
-- [ ] Sample data included (if appropriate)
-- [ ] Data sources documented
-
-#### Academic Integrity
-- [ ] All sources properly cited
-- [ ] Code attribution is clear
-- [ ] AI assistance disclosed (if used and permitted)
-- [ ] Collaboration documented (for group projects)
-
-### What Your Repository Should Include
-
-#### Required Files
-
-1. **README.md**
-   - Use [README-EXAMPLE.md](../README-EXAMPLE.md) as your template
-   - Project title and student/group information (names, CIDs, GitHub usernames)
-   - Executive summary (150-300 words)
-   - How to run your code
-   - Data sources with citations
-   - Methodology overview and results
-   - Individual contributions (for group projects)
-   - AI tool usage statement
-   - References
-
-2. **requirements.txt**
-   - List all pip package dependencies
-   - Include version numbers (optional but recommended)
-   - Generate with: `pip freeze > requirements.txt`
-
-3. **LICENSE**
-   - Keep MIT or update as appropriate
-
-4. **.gitignore**
-   - Ensure data files are ignored
-   - Exclude conda environments
-   - Exclude .env files
-
-#### Recommended Structure
+## Recommended structure
 
 ```
 your-project/
 ├── README.md
 ├── requirements.txt
 ├── LICENSE
-├── .gitignore
 ├── data/
-│   ├── .gitkeep
-│   └── README.md (describe data sources)
+│   └── README.md          (if any data must be downloaded separately)
 ├── notebooks/
-│   ├── example-world-bank-api.ipynb (delete or keep as reference)
+│   ├── 00-report.ipynb
 │   ├── 01-data-exploration.ipynb
-│   ├── 02-data-cleaning.ipynb
-│   └── 03-analysis.ipynb
-├── src/
-│   ├── template/
-│   │   ├── example-*.py (delete or keep as reference)
-│   └── your_code.py
-└── docs/
-    └── methodology.md
+│   └── 02-analysis.ipynb
+├── models/
+│   └── power_model_plant1.joblib
+└── src/
+    ├── app.py             (Streamlit demo)
+    └── your_module.py
 ```
 
-## How to Submit
+## How to submit
 
-1. Ensure your repository is **Private**
-2. Add your instructor as a collaborator (this is the official form of submission):
-   - Go to Settings → Collaborators
-   - Add username: **`p-ang`** (Prof Panagiotis Angeloudis)
-   - Select **Read** permission (or as specified by instructor)
-   - **Note:** You can add them at any time during the project if you want guidance, not just at submission
-3. Submit the repository URL if required by your course platform
-4. Be prepared to submit a copy of the repository as a ZIP file (see instructions in [Git Workflows](git-workflows.md#creating-a-repository-backup-zip))
+1. Check the repository is **Private**.
+2. Add **`p-ang`** (Prof Panagiotis Angeloudis) as a collaborator with **Read** permission: **Settings → Collaborators → Add people**. This is the official form of submission. You can do it at any point; adding him early lets him see your progress if you ask for feedback.
+3. Submit the repository URL on Blackboard if the brief asks for it.
+4. Keep a ZIP copy in case you are asked for one (see [Making a ZIP backup](getting-started-github.md#making-a-zip-backup)).
 
-## Common Mistakes to Avoid
+Do not push changes after the deadline unless you have been given permission, and do not delete the repository until marks are released.
 
-**❌ Don't:**
-- Use absolute file paths (`C:/Users/YourName/data.csv`) - use relative paths (`../data/data.csv`)
-- Commit large datasets (>10MB) - use `.gitignore`
-- Hardcode API keys or passwords - use `.env` files
-- Leave incomplete README - provide clear step-by-step instructions
-- Make one giant commit at the end - commit frequently with clear messages
+## Group projects
 
-**✅ Do:**
-- Test in a fresh conda environment before submitting
-- Run all notebooks from top to bottom (Restart Kernel → Run All)
-- Write clear commit messages: "Add data cleaning" not "updates"
-- Document dependencies: `pip freeze > requirements.txt`
-- Verify instructor (`p-ang`) has access to your repository
-- Keep a backup of your repository (clone or download ZIP)
+Individual contributions are assessed from the Git commit history: how often each member committed, and what. Every member must:
 
-## Group Project Considerations
+- write code and notebooks as well as documentation; dividing the team into "coders" and "writers" is not acceptable;
+- commit regularly under their own GitHub account, with the name and email set correctly (see [Getting started with GitHub](getting-started-github.md#setup));
+- push throughout the project, not in one batch at the end.
 
-> **⚠️ Critical:** Individual contributions will be assessed through Git commit history. Every team member must make substantial contributions to **code, notebooks, and documentation** throughout the project. All team members should write code - documentation alone is not sufficient.
+Summarise who did what in the README's "Individual Contributions" section.
 
-### Individual Contributions Requirement
+## What markers look for
 
-**What instructors will check:**
-- Number and frequency of commits per team member
-- **Types of contributions - code, notebooks, AND documentation all expected**
-
-**What you need to do:**
-- **Write actual code (Python files, Jupyter notebooks with analysis)**
-- **Write clear documentation (README, methodology, code comments)**
-- Commit regularly under your own GitHub account
-- Ensure your Git config has the correct name and email
-
-
-
-### Document Contributions
-
-In your README, include:
-
-```markdown
-## Team Contributions
-
-- **Student A**: Data collection and cleaning (notebooks/01-data-loading.ipynb)
-- **Student B**: Exploratory analysis (notebooks/02-eda.ipynb)
-- **Student C**: Machine learning models (notebooks/03-modeling.ipynb, src/models.py)
-- **Student D**: Visualization and documentation (notebooks/04-results.ipynb, docs/)
-
-All team members contributed to code review, testing, and integration.
-```
-
-### Git Commit Best Practices
-
-- ✅ Commit code, notebooks, and documentation regularly (daily or more often)
-- ✅ Use your own GitHub account (check `git config user.email`)
-- ✅ Write clear commit messages describing your changes
-- ✅ Contribute different types of work (code, analysis, visualization, documentation)
-- ✅ Mix technical and documentation contributions
-- ✅ Push frequently so work is visible
-- ❌ Don't make one giant commit at the end
-- ❌ Don't commit only documentation without any code/notebooks
-- ❌ Don't commit only code without any documentation
-- ❌ Don't have uneven contribution (one person writing all the code)
-- ❌ Don't divide into "coders" and "writers" - everyone does both
-
-## What Markers Look For
-
-- **Code quality**: Readable, well-organized, follows best practices
-- **Documentation**: Clear explanations of methods and results
-- **Reproducibility**: Can they run your code and get the same results?
-- **Analysis quality**: Sound methodology and interpretation
-- **Presentation**: Professional formatting and structure
-
-## After Submission
-
-- **Don't delete your repository** until after grading
-- **Don't make changes** after the deadline unless permitted
-- Keep a backup of your repository
-
----
-
-**Questions?** Contact your course instructor or teaching assistant before the deadline if you're unsure about submission requirements.
+- **Reproducibility**: can they clone the repository and get your results?
+- **Correctness**: are the methods appropriate and correctly applied?
+- **Explanation**: do the notebooks explain the approach and interpret the results?
+- **Presentation**: clear plots, readable code and a well-organised repository.

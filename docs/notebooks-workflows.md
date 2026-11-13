@@ -1,52 +1,26 @@
-# Jupyter Notebook Best Practices
+# Notebooks
 
-This guide provides recommendations for organizing and documenting your analytical notebooks effectively.
+## Organising notebooks
 
-## Organizing Your Notebooks
+Number notebooks in the order they should be run, and name them after what they do:
 
-The `notebooks/` folder contains example files (prefixed with `example-`) that you can reference or delete.
+```
+notebooks/
+├── 00-report.ipynb
+├── 01-data-exploration.ipynb
+├── 02-regression.ipynb
+└── 03-classification.ipynb
+```
 
-- **Number your notebooks**: Use prefixes like `01-`, `02-` to show the order
-  ```
-  notebooks/
-    ├── example-world-bank-api.ipynb (delete or keep as reference)
-    ├── 01-data-loading.ipynb
-    ├── 02-data-cleaning.ipynb
-    ├── 03-exploratory-analysis.ipynb
-    └── 04-results.ipynb
-  ```
+Keep each notebook to one topic. A notebook that loads, cleans, models and plots everything is hard to review and is where team conflicts happen. Code you reuse across notebooks belongs in a module in `src/`.
 
-- **Or use subfolders**: Create thematic subfolders within `notebooks/` to organize different parts
-  ```
-  notebooks/
-    ├── example-world-bank-api.ipynb
-    ├── 01-data-exploration/
-    ├── 02-analysis/
-    └── 03-visualization/
-  ```
+## Inside a notebook
 
-## Notebook Structure
+- Start with a title and a short paragraph saying what the notebook does and which data it uses.
+- Use `##` headings for sections, and explain in markdown what each section does and what its results show. Code without explanation is hard to mark.
+- Give every plot a title, axis labels with units, and a legend where there is more than one series.
+- State assumptions and limitations where they arise.
 
-A well-structured analytical notebook should include:
+## Before you commit
 
-1. **Title and overview** - What the notebook does
-2. **Data sources** - Where data comes from
-3. **Methodology** - Analysis approach
-4. **Analysis and code** - Your actual work
-5. **Results and findings** - Key outcomes
-6. **Conclusions** - Interpretation and next steps
-
-## Formatting Tips
-
-- **Use clear headings**: Use `#` for the notebook title, `##` for major sections
-- **Add markdown explanations**: Explain your analysis, don't just show code
-- **Include visualizations**: Make your findings clear with plots and tables
-- **Comment your code**: Help reviewers understand your approach
-- **Add labels to plots**: All charts should have titles, axis labels, and legends
-
-## Best Practices
-
-- **Keep notebooks focused**: One notebook = one analysis topic
-- **Clear naming**: Use descriptive filenames like `01-data-cleaning.ipynb`
-- **Run all cells before committing**: Ensure reproducibility
-- **Document assumptions**: Note any assumptions or limitations
+Run **Kernel → Restart & Run All** and check the notebook runs from top to bottom without errors. Notebooks that only work when cells are run in a particular order are not reproducible.

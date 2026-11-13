@@ -1,290 +1,102 @@
 # Getting Started with GitHub
 
-This guide will help you get started with GitHub for your coursework. We recommend using **GitHub Desktop** - it's the easiest way to work with Git and GitHub.
+This guide covers what you need to manage coursework with Git and GitHub. It uses **GitHub Desktop**, which needs no command line; equivalent commands are listed at the end.
 
-## What is Git and GitHub?
-
-- **Git**: Version control system that tracks changes to your files
-- **GitHub**: Website that hosts your Git repositories online
-- **GitHub Desktop**: Desktop app that makes Git easy to use (no command line needed!)
+- **Git** tracks changes to your files.
+- **GitHub** hosts your repository online and lets your team share it.
+- **GitHub Desktop** is an app for using both.
 
 ## Setup
 
-### 1. Create a GitHub Account
+1. Create an account at [github.com](https://github.com). Using your Imperial email makes you eligible for the [Student Developer Pack](https://education.github.com/pack).
+2. Install [GitHub Desktop](https://desktop.github.com) and sign in.
+3. In GitHub Desktop, check **Preferences → Git** (Mac) or **Options → Git** (Windows): the name and email must match your GitHub account, or your commits will not be credited to you.
+4. Clone your repository: **File → Clone repository**, pick it from the list, choose a folder and click **Clone**.
 
-If you don't have one already:
-1. Go to [github.com](https://github.com)
-2. Click "Sign up"
-3. Use your Imperial College email for education benefits
+## Daily workflow
 
-### 2. Install GitHub Desktop
+1. **Fetch origin**, then **Pull origin** if there are changes. Do this before you start, every time.
+2. Work on your notebooks and code.
+3. Review the changed files in GitHub Desktop. Untick anything you do not mean to commit.
+4. Write a commit message and click **Commit to main**.
+5. Click **Push origin**. Until you push, your work exists only on your computer.
 
-1. Download from [desktop.github.com](https://desktop.github.com)
-2. Install and open the app
-3. Sign in with your GitHub account
+Commit small pieces of work often, and push at least daily.
 
-## Working with Your Repository
+### Commit messages
 
-### Clone Your Repository
+Say what changed: "Add correlation heatmap to EDA notebook" or "Fix missing value handling in clean_data()". Messages such as "Update", "Fixed stuff" or "Final version" tell your team and your marker nothing.
 
-After creating your repository from the template:
+### What not to commit
 
-1. Open GitHub Desktop
-2. Click **File** → **Clone repository**
-3. Find your repository in the list
-4. Choose where to save it on your computer
-5. Click **Clone**
+The `.gitignore` file already excludes conda environments, `.env` files and temporary files such as `.ipynb_checkpoints/` and `__pycache__/`. You are responsible for the rest:
 
-Your repository is now on your computer!
+- data files over 50 MB (see [Data](../README.md#data))
+- passwords and API keys
+- personal data
 
-### Basic Workflow with GitHub Desktop
+If you commit a password or key by mistake, change it straight away: deleting the file does not remove it from the history.
 
-#### 1. Make Changes
+## Working in a team
 
-Work on your project normally:
-- Edit code in your favorite editor (VS Code, PyCharm, etc.)
-- Run Jupyter notebooks
-- Add data files (remember: keep them in `data/` folder)
+Pull before you start, agree who is working on which file, and work on different notebooks where possible. Two people editing the same notebook at once is the most common source of conflicts, because notebook files are hard to merge.
 
-#### 2. Review Changes
+### Merge conflicts
 
-In GitHub Desktop:
-- You'll see all changed files in the left sidebar
-- Click on files to see what changed (green = added, red = removed)
-- Review your changes before committing
+When two people change the same lines, GitHub Desktop reports a conflict:
 
-#### 3. Commit Changes
-
-A commit is like a "save point" for your project:
-
-1. Check the boxes next to files you want to commit (usually all)
-2. Write a **commit message** in the bottom-left:
-   - Summary: Brief description (e.g., "Add data cleaning code")
-   - Description (optional): More details if needed
-3. Click **Commit to main**
-
-**Good commit messages:**
-- ✅ "Add exploratory data analysis notebook"
-- ✅ "Fix bug in data loading function"
-- ✅ "Update README with installation instructions"
-
-**Bad commit messages:**
-- ❌ "Update"
-- ❌ "Changes"
-- ❌ "asdfasdf"
-
-#### 4. Push to GitHub
-
-After committing, your changes are saved locally but not yet on GitHub:
-
-1. Click **Push origin** (top-right)
-2. Your changes are now on GitHub!
-
-**Tip:** Push regularly so your work is backed up online.
-
-### Viewing Your Repository Online
-
-1. In GitHub Desktop, click **Repository** → **View on GitHub**
-2. Or go to `https://github.com/YOUR-USERNAME/YOUR-REPO-NAME`
-
-## Working in a Team (Group Projects)
-
-### Getting Team Updates
-
-Before you start working, get the latest changes:
-
-1. Click **Fetch origin** (top-right)
-2. If there are changes, click **Pull origin**
-
-**Always pull before you start working!** This avoids conflicts.
-
-### Handling Merge Conflicts
-
-If two people edited the same file:
-
-1. GitHub Desktop will warn you about conflicts
-2. Click **Open in [Your Editor]**
-3. Look for conflict markers:
+1. Click **Open in [your editor]**.
+2. Find the conflict markers:
    ```
    <<<<<<< HEAD
-   Your changes
+   your changes
    =======
-   Teammate's changes
+   your teammate's changes
    >>>>>>> main
    ```
-4. Decide which version to keep (or combine them)
-5. Remove the conflict markers
-6. Save the file
-7. In GitHub Desktop, commit the resolved conflict
+3. Keep the right version (or combine them) and delete the markers.
+4. Save, then commit in GitHub Desktop.
 
-**Tips to avoid conflicts:**
-- Communicate with your team about who's working on what
-- Pull frequently
-- Work on different files when possible
+### Branches (optional)
 
-## Using Branches (Optional but Recommended)
+For most coursework you can work on `main`. A branch is useful for trying something risky: click **Current branch → New branch**, work and commit as usual, and when it works, push it and open a **Pull Request** on GitHub.com to merge it into `main`. If it does not work, switch back to `main` and delete the branch.
 
-Branches let you work on features without affecting the main code.
+## Fixing mistakes
 
-### Create a Branch
+| Problem | What to do |
+|---------|------------|
+| Can't push: "need to pull first" | Someone else pushed. **Pull origin**, resolve any conflicts, push again. |
+| Last commit not pushed yet and wrong | **History** tab, right-click the commit, **Undo commit**. Your changes return to uncommitted. |
+| Commit already pushed and wrong | **History** tab, right-click the commit, **Revert changes in commit**. This adds a new commit that undoes it. |
+| Discard uncommitted changes to a file | Right-click the file in the **Changes** tab, **Discard changes**. This cannot be undone. |
+| Commits show the wrong name | Fix the name and email (Setup step 3) and tell your instructor which earlier commits were yours. |
+| "Authentication failed" | Sign out of GitHub Desktop and sign back in. |
+| "Repository not found" | Check you have accepted the collaborator invitation. |
 
-1. Click **Current branch** (top-center)
-2. Click **New branch**
-3. Name it (e.g., "data-analysis" or "fix-bug")
-4. Click **Create branch**
+Never force push: it can delete your teammates' work.
 
-### Work on Your Branch
+## Checking contributions
 
-- Make changes and commit as normal
-- Your main branch stays unchanged
-- Perfect for trying new things!
+**History** in GitHub Desktop lists every commit, who made it and what changed. On GitHub.com, **Insights → Contributors** shows the same per person; your instructor uses this to assess individual contributions.
 
-### Merge Back to Main
+## Making a ZIP backup
 
-When your work is ready:
+You may be asked to submit a ZIP copy of your repository. Push all your changes first, then on GitHub.com click the green **Code** button and **Download ZIP**.
 
-1. Push your branch to GitHub
-2. On GitHub.com, create a **Pull Request**
-3. Team reviews your changes
-4. Click **Merge pull request**
+## Command line equivalents
 
-GitHub Issues can help you track tasks and bugs in your project.
-
-## Common Tasks
-
-### Undo Last Commit (Before Pushing)
-
-1. Click **History** tab
-2. Right-click the last commit
-3. Click **Undo commit**
-
-Your changes return to "uncommitted" state.
-
-### Discard All Changes to a File
-
-1. Right-click the file in Changes tab
-2. Click **Discard changes**
-
-**Warning:** This permanently deletes your changes!
-
-### See Full History
-
-1. Click **History** tab
-2. See all commits, who made them, and when
-3. Click any commit to see what changed
-
-## Command Line Basics (Optional)
-
-Most students use GitHub Desktop, but here are basic Git commands if needed:
-
-### Basic Commands
-
-```bash
-# Check status
-git status
-
-# See what changed
-git diff
-
-# Pull latest changes
-git pull
-
-# Stage all changes
-git add .
-
-# Commit
-git commit -m "Your message"
-
-# Push to GitHub
-git push
-
-# Create and switch to new branch
-git checkout -b branch-name
-
-# Switch branches
-git checkout main
-```
-
-### View History
-```bash
-# See commit history
-git log
-
-# See simplified history
-git log --oneline
-```
-
-## Best Practices
-
-### Do This ✅
-
-- **Commit often**: Small, frequent commits are better than large ones
-- **Write clear messages**: Explain what and why
-- **Pull before you work**: Always get latest changes first
-- **Push regularly**: Back up your work online
-- **Review before committing**: Check what you're committing
-
-### Don't Do This ❌
-
-- **Don't commit secrets**: Never commit API keys or passwords
-- **Don't commit large files**: Keep datasets in `.gitignore`
-- **Don't use vague messages**: "Update" tells you nothing later
-- **Don't force push**: Can delete teammates' work
-- **Don't work without pulling**: Leads to conflicts
-
-## Troubleshooting
-
-### "Can't push - need to pull first"
-
-Someone else pushed changes:
-1. Click **Pull origin**
-2. Resolve any conflicts
-3. Push again
-
-### "Authentication failed"
-
-1. Open GitHub Desktop
-2. Go to **File** → **Options** (Windows) or **Preferences** (Mac)
-3. Click **Sign out** and sign back in
-
-### "Repository not found"
-
-- Check you have access to the repository
-- For private repos, ensure you're added as a collaborator
-- Try signing out and back in
-
-### Changes Not Showing in GitHub Desktop
-
-- Make sure you saved the files!
-- Check you're in the right repository (top-left dropdown)
-- Try **Repository** → **Refresh**
-
-## Learning More
-
-### GitHub Desktop
-- [GitHub Desktop Documentation](https://docs.github.com/en/desktop)
-- [GitHub Desktop Tutorial](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop)
-
-### Git Basics
-- [Git Workflows](git-workflows.md) - More advanced Git topics
-- [GitHub Skills](https://skills.github.com/) - Interactive tutorials
-- [Git Handbook](https://guides.github.com/introduction/git-handbook/)
-
-### For Your Coursework
-- [Submission Guidelines](submission-guidelines.md) - Preparing for submission
-- [Getting Help](getting-help.md) - Troubleshooting guide
-
-## Quick Reference
-
-| Task | GitHub Desktop | Command Line |
+| Task | GitHub Desktop | Command line |
 |------|----------------|--------------|
-| Get latest changes | Fetch/Pull origin | `git pull` |
-| Save changes | Commit to main | `git commit -m "message"` |
-| Upload changes | Push origin | `git push` |
-| Undo last commit | Right-click → Undo | `git reset HEAD~1` |
-| Create branch | New branch button | `git checkout -b name` |
-| See history | History tab | `git log` |
+| Get latest changes | Fetch / Pull origin | `git pull` |
+| See what changed | Changes tab | `git status`, `git diff` |
+| Commit | Commit to main | `git add .` then `git commit -m "message"` |
+| Upload | Push origin | `git push` |
+| Undo last (unpushed) commit | History → Undo commit | `git reset HEAD~1` |
+| Undo a pushed commit | History → Revert changes in commit | `git revert <commit>` |
+| New branch | Current branch → New branch | `git switch -c name` |
+| History | History tab | `git log --oneline` |
 
----
+## Further reading
 
-> **Remember:** GitHub Desktop handles most Git tasks for you. Focus on writing good commit messages and pushing regularly!
+- [GitHub Desktop documentation](https://docs.github.com/en/desktop)
+- [GitHub Skills](https://skills.github.com/): short interactive courses

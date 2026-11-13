@@ -1,150 +1,49 @@
-# Academic Integrity and Proper Attribution
+# Academic Integrity
 
-## Academic Integrity
+Everything you submit must be your own work or your team's, and anything you took from elsewhere must be credited. If you are unsure whether something needs a citation, cite it, or ask your instructor before you submit.
 
-Academic integrity is fundamental to your work at Imperial College London. When using this template for coursework, you must ensure that all work submitted is your own (or your team's) and properly attributed.
+## What to cite
 
-## What You Must Do
+- **Data**: where each dataset came from, when you accessed it, and its licence.
+- **Code**: anything adapted from tutorials, documentation, Stack Overflow or other repositories. Put the source in a comment next to it:
+  ```python
+  # Adapted from https://stackoverflow.com/questions/12345
+  def resample_to_hourly(df):
+      ...
+  ```
+- **Methods and ideas** taken from papers, books or websites.
 
-### 1. Cite Your Sources
+List your references in the README and in your report notebook. Any consistent style is fine; the [Imperial Library referencing guide](https://www.imperial.ac.uk/admin-services/library/learning-support/reference-management/) has examples.
 
-Always cite:
-- **Data sources**: Where did your data come from?
-- **Code you adapted**: If you used code from tutorials, Stack Overflow, or other sources
-- **Ideas and methods**: If you used techniques from papers or other sources
-- **Libraries and packages**: Acknowledge the tools you used
+## Working with others
 
-### 2. Proper Attribution
+You may discuss ideas and approaches with other students, but do not share or copy code between teams. Within a team, every member contributes code, notebooks and documentation, and the README records who did what (see [Submission guidelines](submission-guidelines.md#group-projects)).
 
-When you use code or ideas from others:
+## AI tools
 
-```python
-# Source: https://stackoverflow.com/questions/12345
-# Adapted from: John Doe's tutorial on data cleaning
-# Original author: Jane Smith
-def my_function():
-    # Your implementation
-    pass
-```
+Check the coursework brief for what is permitted. Where AI tools are allowed, you must:
 
-### 3. Collaboration Guidelines
+- disclose which tools you used and what for, in the README's "Use of AI Tools" section;
+- understand, test and be able to explain every line you submit;
+- take responsibility for the result, including any errors the tool introduced.
 
-**For Individual Assignments:**
-- Do NOT share code with other students
-- Do NOT copy code from classmates
-- You may discuss concepts, but write your own code
-
-**For Group Projects:**
-- All team members should contribute
-- Use Git commits to track who did what
-- Document each member's contributions in README
-
-## What is Plagiarism?
-
-Plagiarism includes:
-- ❌ Copying code without attribution
-- ❌ Submitting someone else's work as your own
-- ❌ Using AI tools (ChatGPT, Copilot) without disclosure (if prohibited by your course)
-- ❌ Paraphrasing without citation
-
-## Using AI Tools
-
-**Important:** Check your course guidelines on AI usage. Some courses allow it, others don't.
-
-If AI tools are permitted:
-- ✅ Disclose when you used AI assistance
-- ✅ Review and understand all AI-generated code
-- ✅ Document what the AI helped with
-
-Example disclosure:
-```markdown
-## AI Assistance Disclosure
-- Used ChatGPT to debug error in data loading function (lines 45-60)
-- Used GitHub Copilot for code completion and documentation
-- All code was reviewed, tested, and understood before inclusion
-```
-
-## Data Ethics and Privacy
-
-### What NOT to Commit to Git
-
-Never commit:
-- ❌ Personal data (names, addresses, emails)
-- ❌ Sensitive information (medical records, financial data)
-- ❌ Data you don't have permission to share
-- ❌ Large datasets (use `.gitignore`)
-
-### Handling Sensitive Data
-
-If working with sensitive data:
-1. Anonymize data before analysis
-2. Store sensitive data locally only (never commit)
-3. Use sample/synthetic data in your repository
-4. Document data sources and access restrictions
-
-### GDPR and Data Protection
-
-If using data about people:
-- Ensure you have permission to use the data
-- Anonymize personal information
-- Don't share raw data publicly
-- Follow Imperial College's data protection policies
-
-## Citing Data Sources
-
-Always document where your data came from:
+For example:
 
 ```markdown
-## Data Sources
-
-1. **Dataset Name**: [Source Name]
-   - URL: https://example.com/data
-   - Access Date: 2025-01-15
-   - License: CC-BY-4.0
-   - Description: Brief description of the dataset
-
-2. **API Data**: [API Name]
-   - Endpoint: https://api.example.com
-   - Access Date: 2025-01-15
-   - Terms of Use: Link to terms
+## Use of AI Tools
+- GitHub Copilot: code completion throughout the notebooks.
+- ChatGPT: explained a pandas merge error in 01-data-exploration.ipynb
+  and suggested the fix used in cell 12.
+All suggestions were reviewed and tested by the team.
 ```
 
-## Citation Formats
+Using AI tools without disclosing them can be treated as academic misconduct.
 
-Use appropriate citation formats for your field:
+## Data protection
 
-**For Academic Papers:**
-```
-Smith, J., & Doe, J. (2024). Title of Paper. Journal Name, 12(3), 45-67.
-```
+Do not commit personal data, data you do not have permission to share, or passwords and API keys. If a project uses data about people, anonymise it and follow Imperial's guidance on [student use of data](https://www.imperial.ac.uk/admin-services/governance/policies-and-guidance/guidance/guide-6---student-use-of-data/).
 
-**For Datasets:**
-```
-Organization Name. (2024). Dataset Title (Version 1.0) [Data set].
-https://doi.org/10.1234/example
-```
+## Further reading
 
-**For Software/Packages:**
-```
-Developer Name. (2024). Package Name (Version 2.1.0) [Software].
-https://github.com/example/package
-```
-
-## Resources
-
-- [Imperial College Academic Integrity](https://www.imperial.ac.uk/students/academic-support/graduate-school/students/masters/professional-development/academic-integrity/)
-- [Imperial College Library - Referencing](https://www.imperial.ac.uk/admin-services/library/learning-support/reference-management/)
-- [Understanding Plagiarism](https://www.imperial.ac.uk/students/academic-support/graduate-school/students/doctoral/professional-development/research-integrity/plagiarism/)
-
-## Questions?
-
-If you're unsure about:
-- Whether something constitutes plagiarism
-- How to properly cite a source
-- Whether you can use a particular dataset
-
-**Ask your course instructor or module coordinator before submission.**
-
----
-
-> **Remember:** When in doubt, cite it! Over-attribution is always better than under-attribution.
+- [Imperial academic integrity](https://www.imperial.ac.uk/students/academic-support/graduate-school/students/masters/professional-development/academic-integrity/)
+- [Understanding plagiarism](https://www.imperial.ac.uk/students/academic-support/graduate-school/students/doctoral/professional-development/research-integrity/plagiarism/)
